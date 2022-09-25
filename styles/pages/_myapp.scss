@@ -1,0 +1,19 @@
+@import "../mixins/";
+
+.my-app {
+  &__container {
+    display: flex;
+    gap: 1.5rem;
+    @include small-tablet {
+      gap: 5rem;
+    }
+  }
+  &__content {
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-top: 1rem;
+    overflow: auto;
+    height: 88vh;
+    flex: 1;
+  }
+}

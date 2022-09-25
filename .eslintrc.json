@@ -26,6 +26,20 @@
     // gives warning if spread props getting passed to component ex. (...props)
     "react/jsx-props-no-spreading": ["warn"],
     // suppress errors for Function component is not a function declaration turning off allows us to use arrow functions
-    "react/function-component-definition": ["off"]
+    "react/function-component-definition": ["off"],
+    "no-unused-vars": 1,
+    "@typescript-eslint/no-unused-vars": 0,
+    "import/default": "off",
+    "import/prefer-default-export": "off",
+    "import/no-named-as-default-member": "off",
+    "import/no-named-as-default": "off",
+    "react/require-default-props": [
+      "warn",
+      {
+        "forbidDefaultForRequired": true,
+        "functions": "defaultArguments"
+      }
+    ],
+    "react/button-has-type": "warn"
   }
 }

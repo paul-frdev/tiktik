@@ -1,0 +1,21 @@
+@import "../mixins/";
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid rgb(229 231 235);
+  padding: 0.5rem 1rem;
+  .logo {
+    > div {
+      width: 100px;
+      @include small-tablet {
+        width: 130px;
+      }
+      &__img {
+        cursor: pointer;
+      }
+    }
+  }
+}

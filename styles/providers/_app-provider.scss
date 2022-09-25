@@ -1,0 +1,17 @@
+.error-fallback {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(239 68 68);
+  width: 100vw;
+  height: 100vw;
+  &__title {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+  }
+  &__button {
+    margin-top: 1rem;
+  }
+}
