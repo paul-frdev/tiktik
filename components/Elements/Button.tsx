@@ -4,15 +4,15 @@ import * as React from "react";
 import { Spinner } from "./Spinner";
 
 const variants = {
-  primary: "primary",
-  inverse: "inverse",
-  danger: "danger",
+  primary: "button--primary",
+  inverse: "button--inverse",
+  danger: "button--danger",
 };
 
 const sizes = {
-  sm: "size-sm",
-  md: "size-md",
-  lg: "size-lg",
+  sm: "button--size-sm",
+  md: "button--size-md",
+  lg: "button--size-lg",
 };
 
 type IconProps =
@@ -30,7 +30,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       type = "button",
-      className = "button",
+      className = "",
       variant = "primary",
       size = "md",
       isLoading = false,

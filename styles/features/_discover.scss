@@ -1,0 +1,20 @@
+.discover {
+  padding-bottom: 1.5rem;
+  @include desktop {
+    border: 2px solid rgb(229 231 235);
+  }
+  &__title {
+    display: none;
+    color: rgb(107 114 128);
+    font-weight: 500;
+    padding: 0.75rem;
+    @include desktop-min {
+      display: block;
+    }
+  }
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+}

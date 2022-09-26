@@ -2,10 +2,16 @@
 @import "mixins";
 @import "components";
 @import "components/Elements";
+@import "components/layouts";
 @import "providers";
+@import "features";
 
 html,
-body {
+body,
+h1,
+h2,
+h3,
+h4 {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
