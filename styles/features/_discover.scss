@@ -1,7 +1,10 @@
+@import "../mixins/";
+
 .discover {
-  padding-bottom: 1.5rem;
-  @include desktop {
-    border: 2px solid rgb(229 231 235);
+  padding: 0.75rem;
+  @include desktop-min {
+    border-bottom: 2px solid rgb(229 231 235);
+    border-top: none;
   }
   &__title {
     display: none;
@@ -16,5 +19,59 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
+    .item,
+    .active-item {
+      border: 2px solid #fff;
+      padding: 0.5rem 0.5rem;
+      border-radius: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 600;
+      width: 5rem;
+      cursor: pointer;
+      color: #000;
+      svg {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+      > span {
+        display: none;
+        font-weight: 500;
+        font-size: 0.75rem;
+        @include desktop-min {
+          display: block;
+          text-transform: capitalize;
+          font-size: 0.75rem;
+        }
+      }
+      &:hover {
+        svg {
+          fill: #f51997;
+        }
+        > span {
+          color: #f51997;
+        }
+        border: 2px solid #f51997;
+      }
+      @include desktop-min {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.25rem;
+        width: 6rem;
+      }
+    }
+
+    .active-item {
+      svg {
+        fill: #f51997;
+      }
+      > span {
+        color: #f51997;
+      }
+      @include desktop-min {
+        border: 2px solid #f51997;
+      }
+    }
   }
 }

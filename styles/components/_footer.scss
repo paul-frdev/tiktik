@@ -1,0 +1,32 @@
+@import "../mixins/";
+
+.footer {
+  margin-top: 1.5rem;
+  display: none;
+  @include desktop-min {
+    display: block;
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    &-item {
+      cursor: pointer;
+      color: rgb(156 163 175);
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    &--mt {
+      margin-top: 1.25rem;
+    }
+  }
+  &__bottom {
+    color: rgb(156 163 175);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    margin-top: 1.5rem;
+  }
+}

@@ -7,6 +7,7 @@ import { ImCancelCircle } from "react-icons/im";
 import clsx from "clsx";
 import { Discover } from "features/Discover";
 import { Button } from "./Elements/Button";
+import { Footer } from "./Footer";
 
 export const Sidebar: NextPage = () => {
   const [showSidebar, setShowSidebar] = useState(true);
@@ -14,8 +15,9 @@ export const Sidebar: NextPage = () => {
 
   return (
     <div className="sidebar">
-      <div className="sidebar__button">
+      <div className="sidebar__wrapper">
         <Button
+          className="sidebar__button"
           size="sm"
           variant="inverse"
           onClick={() => setShowSidebar((prev) => !prev)}
@@ -40,6 +42,7 @@ export const Sidebar: NextPage = () => {
             </Link>
           </div>
           <Discover />
+          <Footer />
         </div>
       )}
     </div>
