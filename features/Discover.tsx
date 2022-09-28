@@ -8,7 +8,6 @@ import { useRouter } from "next/router";
 export const Discover = () => {
   const router = useRouter();
   const { topic } = router.query;
-  console.log("topic", topic);
 
   return (
     <div className="discover">
