@@ -6,6 +6,7 @@ import { Spinner } from "./Spinner";
 const variants = {
   primary: "button--primary",
   inverse: "button--inverse",
+  values: "button--values",
   danger: "button--danger",
 };
 

@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { useState, useEffect } from "react";
 import { Sidebar } from "components/Sidebar";
 import { Navbar } from "components/Navbar";
+import { AppProvider } from "providers/AppProvider";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const [isSSR, setIsSSR] = useState(true);
@@ -14,15 +15,17 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   if (isSSR) return null;
 
   return (
-    <div className="my-app">
-      <Navbar />
-      <div className="my-app__container">
-        <Sidebar />
-        <div className="my-app__content videos">
-          <Component {...pageProps} />
+    <AppProvider>
+      <div className="my-app">
+        <Navbar />
+        <div className="my-app__container">
+          <Sidebar />
+          <div className="my-app__content videos">
+            <Component {...pageProps} />
+          </div>
         </div>
       </div>
-    </div>
+    </AppProvider>
   );
 };
 

@@ -14,10 +14,12 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@react-oauth/google": "^0.2.8",
     "@sanity/client": "^3.3.0",
     "@types/react-helmet": "^6.1.5",
     "axios": "^0.27.2",
     "clsx": "^1.2.1",
+    "jwt-decode": "^3.1.2",
     "next": "12.3.1",
     "react": "18.2.0",
     "react-css-styled": "^1.0.4",

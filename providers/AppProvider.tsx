@@ -2,6 +2,7 @@ import { Button } from "components/Elements/Button";
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { BrowserRouter as Router } from "react-router-dom";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const ErrorFallback = () => {
   return (
@@ -25,7 +26,11 @@ export const AppProvider = ({ children }: AppProviderProps) => {
   return (
     <React.Suspense>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <Router>{children}</Router>
+        <GoogleOAuthProvider
+          clientId={`${process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN}`}
+        >
+          <Router>{children}</Router>
+        </GoogleOAuthProvider>
       </ErrorBoundary>
     </React.Suspense>
   );

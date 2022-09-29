@@ -5,6 +5,7 @@ import { BiSearch } from "react-icons/bi";
 import { IoMdAdd } from "react-icons/io";
 import Image from "next/image";
 import Link from "next/link";
+import { GoogleLogInPage } from "features/GoogleLogInPage";
 import LogoImg from "../assets/tiktik-logo.png";
 
 export const Navbar = () => {
@@ -22,7 +23,8 @@ export const Navbar = () => {
           </div>
         </Link>
       </div>
-      <nav>Navbar</nav>
+      <div>Search</div>
+      <GoogleLogInPage />
     </div>
   );
 };
