@@ -38,6 +38,7 @@
     "import/no-named-as-default": "off",
     "react/prop-types": "warn",
     "jsx-a11y/media-has-caption": "off",
+    "jsx-a11y/label-has-associated-control": "off",
     "react/require-default-props": [
       "warn",
       {

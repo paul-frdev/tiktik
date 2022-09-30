@@ -16,7 +16,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <AppProvider>
-      <div className="my-app">
+      <main className="my-app">
         <Navbar />
         <div className="my-app__container">
           <Sidebar />
@@ -24,7 +24,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             <Component {...pageProps} />
           </div>
         </div>
-      </div>
+      </main>
     </AppProvider>
   );
 };

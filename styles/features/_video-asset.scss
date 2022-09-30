@@ -1,0 +1,54 @@
+@import "../mixins/";
+
+.video-asset {
+  &__label {
+    cursor: pointer;
+  }
+  &__wrapper,
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  &__content {
+    height: auto;
+  }
+
+  &__icon,
+  &__title {
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    svg {
+      color: rgb(209 213 219);
+      font-size: 3.75rem;
+      line-height: 1;
+    }
+  }
+  &__title {
+    font-weight: 500;
+  }
+
+  &__subtitle {
+    text-align: center;
+    margin-top: 2.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgb(156 163 175);
+    line-height: 2rem;
+  }
+
+  &__button {
+    width: 13rem;
+    &:hover {
+      background: transparent;
+    }
+  }
+
+  &__input {
+    width: 0;
+    height: 0;
+  }
+}
