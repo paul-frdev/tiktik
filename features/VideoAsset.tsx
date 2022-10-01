@@ -54,7 +54,7 @@ export const VideoAsset = () => {
               <p className="video-asset__icon">
                 <FaCloudUploadAlt />
               </p>
-              <p className="video-asset__title"> Select video to upload</p>
+              <p className="video-asset__title">Select video to upload</p>
             </div>
             <p className="video-asset__subtitle">
               MP4 or WebM or ogg <br />
@@ -62,18 +62,41 @@ export const VideoAsset = () => {
               Up to 10 minutes <br />
               Less than 2 GB
             </p>
-            <Button variant="primary" className="video-asset__button">
-              Select file
-            </Button>
+            <p className="video-asset__button">Select file</p>
           </div>
           <input
             type="file"
             name="upload-video"
-            className="video-asset__input"
             onChange={(e) => uploadVideo(e)}
+            className="video-asset__input"
           />
         </label>
-      ) : null}
+      ) : (
+        <div className="video-asset__current">
+          <video
+            src={videoAssetValue.url}
+            loop
+            controls
+            className="video-asset__uploaded"
+          />
+          <div className="video-asset__filename">
+            <p className="video-asset__filename-text">
+              {`${videoAssetValue.originalFilename?.slice(1, 10)}...`}
+            </p>
+            <Button
+              onClick={() => setVideoAssetValue(undefined)}
+              className="video-asset__filename-button"
+            >
+              <MdDelete />
+            </Button>
+          </div>
+        </div>
+      )}
+      {wrongFileType && (
+        <p className="video-asset__wrongtype">
+          Please select an video file (mp4 or webm or ogg)
+        </p>
+      )}
     </div>
   );
 };

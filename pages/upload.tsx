@@ -2,13 +2,10 @@ import React, { useState } from "react";
 import { topics } from "utils/constants";
 import { Head } from "components/Head";
 import { VideoAsset } from "features/VideoAsset";
+import { ChooseTopicForm } from "forms/ChooseTopicForm";
 
 const Upload = () => {
-  const [caption, setCaption] = useState("");
-  const [topic, setTopic] = useState(topics[0].name);
   const [loading, setLoading] = useState(false);
-  const [savingPost, setSavingPost] = useState(false);
-
   return (
     <>
       <Head title="Upload" />
@@ -25,6 +22,7 @@ const Upload = () => {
                   <VideoAsset />
                 )}
               </div>
+              <ChooseTopicForm />
             </div>
           </div>
         </div>

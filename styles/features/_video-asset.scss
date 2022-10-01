@@ -25,6 +25,10 @@
       color: rgb(209 213 219);
       font-size: 3.75rem;
       line-height: 1;
+      transition: color 0.3s ease-out;
+      &:hover {
+        color: #f51997;
+      }
     }
   }
   &__title {
@@ -41,14 +45,66 @@
   }
 
   &__button {
+    background: #f51997;
+    text-align: center;
+    margin-top: 2rem;
+    border-radius: 0.25rem;
+    color: #fff;
     width: 13rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    padding: 0.5rem;
+    outline: none;
     &:hover {
       background: transparent;
+      color: #000;
     }
   }
 
   &__input {
     width: 0;
     height: 0;
+  }
+
+  &__current {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    padding: 1rem;
+    gap: 1.5rem;
+    border-radius: 1.5rem;
+  }
+
+  &__uploaded {
+    background: #000;
+    margin-top: 4rem;
+    height: 462px;
+    border-radius: 0.75rem;
+    width: 100%;
+  }
+
+  &__filename {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 4.5rem;
+    &-text {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+    }
+  }
+
+  &__wrongtype {
+    text-align: center;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+    color: rgb(248 113 113);
+    margin-top: 1rem;
+    width: 260px;
   }
 }
