@@ -1,0 +1,48 @@
+@import "../mixins/";
+
+.choose-topic {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 260px;
+  margin-top: 80px;
+  &__label,
+  &__input {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+  }
+  &__input,
+  &__select,
+  &__option {
+    outline: none;
+    padding: 0.5rem;
+    border: 2px solid rgb(229 231 235);
+    border-radius: 0.25rem;
+    @include for-desktop {
+      width: 100%;
+      max-width: 650px;
+    }
+  }
+  &__select {
+    text-transform: uppercase;
+    cursor: pointer;
+    @include for-desktop {
+      padding: 1rem;
+    }
+  }
+
+  &__option {
+    background: #fff;
+    color: rgb(55 65 81);
+    &:hover {
+      background: rgb(203 213 225);
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+}

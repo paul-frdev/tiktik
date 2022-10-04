@@ -27,8 +27,8 @@
     @content;
   }
 }
-@mixin tablet-min {
-  @media (max-width: (1024px)) {
+@mixin for-desktop {
+  @media (min-width: (1024px)) {
     @content;
   }
 }

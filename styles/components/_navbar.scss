@@ -10,6 +10,7 @@
   .logo {
     > div {
       width: 100px;
+      cursor: pointer;
       @include small-tablet {
         width: 130px;
       }

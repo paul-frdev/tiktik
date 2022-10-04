@@ -79,7 +79,7 @@ export const VideoCard: NextPage<IProps> = ({ post, isShowingOnHome }) => {
           onMouseEnter={() => setIsHover(true)}
           onMouseLeave={() => setIsHover(true)}
         >
-          <Link href={`/detail/${_id}`}>
+          <Link href={`/detail/${post._id}`}>
             <video
               className="video-card__player"
               loop

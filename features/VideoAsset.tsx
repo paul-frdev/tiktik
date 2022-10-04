@@ -1,21 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { SanityAssetDocument } from "@sanity/client";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Button } from "components/Elements/Button";
 import { useAuthStore } from "store/authStore";
 import { useRouter } from "next/router";
-import { client } from "utils/client";
+import { SanityAssetDocument } from "@sanity/client";
 
-export const VideoAsset = () => {
-  const [wrongFileType, setWrongFileType] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [videoAssetValue, setVideoAssetValue] = useState<
-    SanityAssetDocument | undefined
-  >();
-
+interface IVideoAsset {
+  uploadVideo?: (e: any) => void;
+  setVideoAssetValue?: (data: SanityAssetDocument | undefined) => void;
+  videoAssetValue?: SanityAssetDocument | undefined;
+  wrongType?: boolean;
+}
+export const VideoAsset = ({
+  uploadVideo,
+  videoAssetValue,
+  wrongType,
+  setVideoAssetValue,
+}: IVideoAsset) => {
   const userProfile: any = useAuthStore((state) => state.userProfile);
   const route = useRouter();
+
+  const handleChange = (event: any) => {
+    uploadVideo?.(event);
+  };
+
+  const resetAssetValue = () => {
+    setVideoAssetValue?.(undefined);
+  };
 
   useEffect(() => {
     if (!userProfile) {
@@ -23,28 +35,6 @@ export const VideoAsset = () => {
     }
   }, [userProfile, route]);
 
-  const uploadVideo = async (e: any) => {
-    const selectedFile = e.target.files[0];
-    const fileTypes = ["video/mp4", "video/webm", "video/ogg"];
-
-    if (fileTypes.includes(selectedFile.type)) {
-      setWrongFileType(false);
-      setLoading(true);
-
-      client.assets
-        .upload("file", selectedFile, {
-          contentType: selectedFile.type,
-          filename: selectedFile.name,
-        })
-        .then((data) => {
-          setVideoAssetValue(data);
-          setLoading(false);
-        });
-    } else {
-      setLoading(false);
-      setWrongFileType(true);
-    }
-  };
   return (
     <div className="video-asset">
       {!videoAssetValue ? (
@@ -67,7 +57,7 @@ export const VideoAsset = () => {
           <input
             type="file"
             name="upload-video"
-            onChange={(e) => uploadVideo(e)}
+            onChange={(event: any) => handleChange(event)}
             className="video-asset__input"
           />
         </label>
@@ -84,7 +74,7 @@ export const VideoAsset = () => {
               {`${videoAssetValue.originalFilename?.slice(1, 10)}...`}
             </p>
             <Button
-              onClick={() => setVideoAssetValue(undefined)}
+              onClick={resetAssetValue}
               className="video-asset__filename-button"
             >
               <MdDelete />
@@ -92,7 +82,7 @@ export const VideoAsset = () => {
           </div>
         </div>
       )}
-      {wrongFileType && (
+      {wrongType && (
         <p className="video-asset__wrongtype">
           Please select an video file (mp4 or webm or ogg)
         </p>

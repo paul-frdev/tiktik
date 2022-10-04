@@ -1,6 +1,6 @@
-@import "../mixins/";
+@import "../../mixins/";
 
-.my-app {
+.main-layout {
   &__container {
     display: flex;
     gap: 1.5rem;
