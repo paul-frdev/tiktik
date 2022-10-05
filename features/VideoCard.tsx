@@ -7,6 +7,8 @@ import { BsFillPlayFill, BsFillPauseFill, BsPlay } from "react-icons/bs";
 import { GoVerified } from "react-icons/go";
 import { Video } from "types";
 import { Button } from "components/Elements/Button";
+import { useRouter } from "next/router";
+import clsx from "clsx";
 import NoAvailableImage from "../assets/no-image.png";
 
 interface IProps {
@@ -20,6 +22,11 @@ export const VideoCard: NextPage<IProps> = ({ post, isShowingOnHome }) => {
   const [isVideoMuted, setIsVideoMuted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const { caption, postedBy, video, likes, _id } = post;
+
+  const router = useRouter();
+  const detail = router.pathname;
+
+  console.log("/detail", detail);
 
   const onVideoPress = () => {
     if (playing) {
@@ -38,7 +45,11 @@ export const VideoCard: NextPage<IProps> = ({ post, isShowingOnHome }) => {
   }, [isVideoMuted]);
 
   return (
-    <div className="video-card">
+    <div
+      className={`${clsx("video-card", {
+        "details-video__card": detail === "/detail/[id]",
+      })}`}
+    >
       <div>
         <div className="video-card__content">
           <div className="video-card__container">

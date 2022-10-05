@@ -1,0 +1,50 @@
+@import "../mixins/";
+
+.details-video {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background: #fff;
+  @include for-desktop {
+    flex-wrap: nowrap;
+  }
+  &__inner {
+    position: relative;
+    display: flex;
+    flex: 2;
+    justify-content: flex-start;
+    align-items: center;
+    width: 1000px;
+    background-color: black;
+    backdrop-filter: blur(64px);
+    @include for-desktop {
+      width: 75%;
+    }
+  }
+  &__card {
+    position: relative;
+  }
+  button[data-name="details-video"] {
+    position: absolute;
+    display: flex;
+    gap: 1.5rem;
+    z-index: 12.5rem;
+    top: 1.5rem;
+    left: 0.5rem;
+    background: transparent;
+    outline: none;
+    border: none;
+    span {
+      svg {
+        width: 2rem;
+        height: 2.5rem;
+      }
+    }
+    @include for-desktop {
+      left: 1.5rem;
+    }
+  }
+}
