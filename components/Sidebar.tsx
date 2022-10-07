@@ -1,15 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NextPage } from "next";
 import Link from "next/link";
 import { AiFillHome, AiOutlineMenu } from "react-icons/ai";
 import { ImCancelCircle } from "react-icons/im";
 import clsx from "clsx";
 import { Discover } from "features/Discover";
+import { useRouter } from "next/router";
 import { Button } from "./Elements/Button";
 import { Footer } from "./Footer";
 
 export const Sidebar: NextPage = () => {
   const [showSidebar, setShowSidebar] = useState(true);
+  const router = useRouter();
+  const detail =
+    router.pathname === "/detail/[id]" || router.pathname === "/upload";
+
+  useEffect(() => {
+    if (detail) {
+      setShowSidebar(false);
+    } else {
+      setShowSidebar(true);
+    }
+  }, [detail]);
 
   return (
     <div className="sidebar">

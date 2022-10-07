@@ -1,0 +1,42 @@
+@import "../mixins/";
+
+.likes-video {
+  margin-top: 2.5rem;
+  padding: 0.5rem;
+  @include for-desktop {
+    margin-top: 5rem;
+  }
+  &__container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    background: #fff;
+    width: 100%;
+    padding-left: 2.5rem;
+    cursor: pointer;
+    &-img {
+      border-radius: 100%;
+    }
+    &-user,
+    > svg {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      align-items: center;
+      font-weight: 600;
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+      letter-spacing: 0.05em;
+      text-transform: lowercase;
+      > svg {
+        fill: rgb(96 165 250);
+      }
+    }
+  }
+  &__caption {
+    padding: 0 2.5rem;
+    > p {
+      color: rgb(75 85 99);
+    }
+  }
+}

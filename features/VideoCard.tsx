@@ -24,9 +24,7 @@ export const VideoCard: NextPage<IProps> = ({ post, isShowingOnHome }) => {
   const { caption, postedBy, video, likes, _id } = post;
 
   const router = useRouter();
-  const detail = router.pathname;
-
-  console.log("/detail", detail);
+  const detail = router.pathname === "/detail/[id]";
 
   const onVideoPress = () => {
     if (playing) {
@@ -47,7 +45,7 @@ export const VideoCard: NextPage<IProps> = ({ post, isShowingOnHome }) => {
   return (
     <div
       className={`${clsx("video-card", {
-        "details-video__card": detail === "/detail/[id]",
+        "details-video__card": detail,
       })}`}
     >
       <div>

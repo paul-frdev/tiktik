@@ -1,0 +1,38 @@
+@import "../mixins/";
+
+.like-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 1rem;
+  &__dislike,
+  &__like {
+    display: flex;
+    border-radius: 100%;
+    padding: 0.5rem;
+    color: #f51997;
+    background: rgb(162 28 175);
+    @include small-tablet-min {
+      padding: 1rem;
+    }
+    &-img {
+      font-size: 1rem;
+      line-height: 1.5rem;
+      @include small-tablet-min {
+        font-size: 1.5rem;
+        line-height: 2rem;
+      }
+    }
+  }
+  button,
+  &__like {
+    color: #000;
+    background: none;
+    box-shadow: none;
+    border: none;
+    &:hover {
+      background: none;
+    }
+  }
+}
