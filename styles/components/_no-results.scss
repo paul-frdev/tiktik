@@ -1,0 +1,17 @@
+.no-results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  &__icon {
+    font-size: 6rem;
+    line-height: 1;
+  }
+  &__text {
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}

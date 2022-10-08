@@ -7,7 +7,7 @@ import { Head } from "components/Head";
 import { Button } from "components/Elements/Button";
 import { MdOutlineCancel } from "react-icons/md";
 import { useRouter } from "next/router";
-import { LIkesVideo } from "features/LIkesVideo";
+import { LIkeVideo } from "features/LIkeVideo";
 
 interface IDetailProps {
   postDetails: Video;
@@ -15,8 +15,6 @@ interface IDetailProps {
 const Detail = ({ postDetails }: IDetailProps) => {
   const [post, setPost] = useState<Video>(postDetails);
   const router = useRouter();
-
-  console.log("post", post);
 
   return (
     <>
@@ -33,7 +31,7 @@ const Detail = ({ postDetails }: IDetailProps) => {
           <VideoCard post={post} isShowingOnHome />
         </div>
         <div className="details-video__content">
-          <LIkesVideo post={post} setPost={setPost} />
+          <LIkeVideo post={post} setPost={setPost} />
         </div>
       </div>
     </>

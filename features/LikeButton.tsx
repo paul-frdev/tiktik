@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { MdFavorite } from "react-icons/md";
 import { useAuthStore } from "store/authStore";
 import { Video } from "types";
-import { Button } from "./Elements/Button";
+import { Button } from "../components/Elements/Button";
 
 interface LikeButtonProps {
   likes?: any[];
@@ -36,22 +36,24 @@ export const LikeButton = ({
 
   return (
     <div className="like-button">
-      {alreadyLiked ? (
-        <Button
-          className="like-button__dislike"
-          onClick={() => handleLike?.(false)}
-        >
-          <MdFavorite className="like-button__dislike-img" />
-        </Button>
-      ) : (
-        <Button
-          className="like-button__like"
-          onClick={() => handleLike?.(true)}
-        >
-          <MdFavorite className="like-button__like-img" />
-        </Button>
-      )}
-      <p className="like-button__length">{likes?.length || 0}</p>
+      <div className="like-button__inner">
+        {alreadyLiked ? (
+          <Button
+            className="like-button__dislike"
+            onClick={() => handleLike?.(false)}
+          >
+            <MdFavorite className="like-button__dislike-img" />
+          </Button>
+        ) : (
+          <Button
+            className="like-button__like"
+            onClick={() => handleLike?.(true)}
+          >
+            <MdFavorite className="like-button__like-img" />
+          </Button>
+        )}
+        <p className="like-button__length">{likes?.length || 0}</p>
+      </div>
     </div>
   );
 };
