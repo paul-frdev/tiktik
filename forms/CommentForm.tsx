@@ -1,10 +1,10 @@
 import { Button } from "components/Elements/Button";
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 
 interface CommentFormProps {
   comment?: string;
-  setComment?: (event: string) => void;
-  addComment?: (event: any) => void;
+  setComment?: Dispatch<SetStateAction<string>>;
+  addComment?: (event: React.FormEvent) => void;
 }
 export const CommentForm = ({
   comment,
@@ -20,7 +20,11 @@ export const CommentForm = ({
         onChange={(event: any) => setComment?.(event.target.value)}
         placeholder="Add comment"
       />
-      <Button onClick={addComment}>
+      <Button
+        disabled={!comment?.length}
+        className="comment-form__button"
+        onClick={addComment}
+      >
         {!isPostingComment ? "Commenting" : "Comment"}
       </Button>
     </form>

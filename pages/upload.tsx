@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { topics } from "utils/constants";
 import { Head } from "components/Head";
 import { VideoAsset } from "features/VideoAsset";
 import { ChooseTopicForm } from "forms/ChooseTopicForm";
@@ -28,8 +27,6 @@ const Upload = () => {
             filename: selectedFile.name,
           })
           .then((data) => {
-            console.log("data", data);
-
             setVideoAssetValue(data);
             setLoading(false);
           });

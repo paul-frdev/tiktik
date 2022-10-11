@@ -79,13 +79,13 @@ export const ChooseTopicForm = ({
         ))}
       </select>
       <div className="choose-topic__buttons">
-        <Button onClick={handleDiscard} className="choose-topic__button">
+        <Button onClick={handleDiscard} className="choose-topic__buttos-btn">
           Discard
         </Button>
         <Button
-          disabled={!videoAssetValue?.url}
+          disabled={!videoAssetValue?.url || !caption || !topic}
           onClick={handlePost}
-          className="choose-topic__button"
+          className="choose-topic__buttons-btn"
         >
           {savingPost ? "Posting..." : "Post"}
         </Button>

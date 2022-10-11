@@ -6,11 +6,14 @@ import { ImCancelCircle } from "react-icons/im";
 import clsx from "clsx";
 import { Discover } from "features/Discover";
 import { useRouter } from "next/router";
+import { SuggestedAccounts } from "features/SuggestedAccounts";
+import { useAuthStore } from "store/authStore";
 import { Button } from "./Elements/Button";
 import { Footer } from "./Footer";
 
 export const Sidebar: NextPage = () => {
   const [showSidebar, setShowSidebar] = useState(true);
+  const { fetchAllUsers, allUsers } = useAuthStore();
   const router = useRouter();
   const detail =
     router.pathname === "/detail/[id]" || router.pathname === "/upload";
@@ -52,6 +55,10 @@ export const Sidebar: NextPage = () => {
             </Link>
           </div>
           <Discover />
+          <SuggestedAccounts
+            fetchAllUsers={fetchAllUsers}
+            allUsers={allUsers}
+          />
           <Footer />
         </div>
       )}

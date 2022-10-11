@@ -44,3 +44,15 @@ a {
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
+
+:root {
+  --background-button-primary: #fd3012;
+  --background-button-secondary: rgb(249 250 251);
+  --background-button-danger: rgb(220 38 38);
+
+  --color-button-primary: #fff;
+  --color-button-secondary: #fd3012;
+  --color-button-danger: rgb(220 38 38);
+
+  --base-background-primary: #fd3012;
+}

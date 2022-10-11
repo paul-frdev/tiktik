@@ -42,7 +42,7 @@ export const LIkeVideo = ({ post, setPost }: ILikesVideos) => {
           </Link>
           <div>
             <div className="like-video__container-user">
-              <span>{post?.postedBy.userName.replace(/\s+/g, "")}</span>
+              <span>{post?.postedBy.userName}</span>
               <GoVerified />
             </div>
             <p>{post?.postedBy.userName}</p>

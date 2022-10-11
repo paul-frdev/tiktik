@@ -15,27 +15,27 @@
     cursor: not-allowed;
   }
   &--primary {
-    background: #f51997;
-    color: #fff;
+    background: var(--background-button-primary);
+    color: var(--color-button-primary);
     &:hover {
-      background: rgb(249 250 251);
-      color: #f51997;
+      background: var(--background-button-secondary);
+      color: var(--color-button-secondary);
     }
   }
   &--inverse {
-    background: #fff;
+    background: var(--background-button-secondary);
     color: #000;
     &:hover {
-      background: #f51997;
-      color: #fff;
+      background: var(--background-button-primary);
+      color: var(--color-button-primary);
     }
   }
   &--danger {
-    background: rgb(220 38 38);
-    color: #fff;
+    background: var(--background-button-danger);
+    color: var(--color-button-primary);
     &:hover {
-      background: rgb(254 242 242);
-      color: rgb(220 38 38);
+      background: var(--background-button-secondary);
+      color: var(--color-button-danger);
     }
   }
   &--values {
@@ -53,7 +53,7 @@
     }
     &:hover {
       background-color: rgb(0 0 0);
-      color: #fff;
+      color: var(--color-button-primary);
     }
   }
   &--size-sm {
