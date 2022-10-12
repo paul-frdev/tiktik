@@ -7,7 +7,7 @@ export const SearchForm = () => {
   const [searchValue, setSearchValue] = useState("");
   const router = useRouter();
 
-  const handleSearch = (event: any) => {
+  const handleSearch = (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
     if (searchValue) {
@@ -17,12 +17,13 @@ export const SearchForm = () => {
 
   return (
     <div className="search-form">
-      <form className="search-form__form">
+      <form className="search-form__form" onSubmit={handleSearch}>
         <input
           className="search-form__input"
           type="text"
           onChange={(event: any) => setSearchValue(event.target.value)}
           value={searchValue}
+          placeholder="Search"
         />
         {searchValue.length > 0 && (
           <Button className="search-form__button" onClick={handleSearch}>
