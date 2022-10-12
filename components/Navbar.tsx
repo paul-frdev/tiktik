@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { GoogleLogInButtons } from "features/GoogleLogInButtons";
-import { Search } from "features/Search";
+import { SearchForm } from "forms/SearchForm";
 import LogoImg from "../assets/tiktik-logo.png";
 
 export const Navbar = () => {
@@ -20,9 +20,7 @@ export const Navbar = () => {
           </div>
         </Link>
       </div>
-      <div>
-        <Search />
-      </div>
+      <SearchForm />
       <GoogleLogInButtons />
     </div>
   );
