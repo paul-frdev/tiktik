@@ -8,6 +8,7 @@ import { CommentForm } from "forms/CommentForm";
 import axios from "axios";
 import { BASE_URL } from "utils";
 import { IUser, Video } from "types";
+import { LikeButton } from "./LikeButton";
 
 interface IComment {
   comment: string;
@@ -39,6 +40,17 @@ export const Comments = ({ comments, post, setPost }: CommentsProps) => {
         setComment("");
         setIsPostingComment(false);
       }
+    }
+  };
+
+  const handleLike = async (like: boolean) => {
+    if (userProfile) {
+      const response = await axios.put(`${BASE_URL}/api/like`, {
+        userId: userProfile._id,
+        postId: post?._id,
+        like,
+      });
+      setPost?.({ ...post, likes: response.data.likes });
     }
   };
 
@@ -81,6 +93,11 @@ export const Comments = ({ comments, post, setPost }: CommentsProps) => {
         ) : (
           <NoResults text="No comments yet! Be the first one to add a comment." />
         )}
+        <div className="comments__inner-likes">
+          {userProfile && (
+            <LikeButton handleLike={handleLike} likes={post?.likes} />
+          )}
+        </div>
       </div>
       {userProfile && (
         <div className="comments__user">

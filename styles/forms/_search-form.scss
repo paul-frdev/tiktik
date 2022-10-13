@@ -1,8 +1,12 @@
 @import "../mixins/";
 
 .search-form {
+  display: none;
   width: 100%;
   max-width: 400px;
+  @include small-tablet-min {
+    display: block;
+  }
   &__form {
     position: relative;
     background: #fff;

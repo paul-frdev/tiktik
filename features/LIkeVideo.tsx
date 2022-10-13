@@ -14,19 +14,6 @@ interface ILikesVideos {
   setPost?: (data: any) => void;
 }
 export const LIkeVideo = ({ post, setPost }: ILikesVideos) => {
-  const { userProfile }: any = useAuthStore();
-
-  const handleLike = async (like: boolean) => {
-    if (userProfile) {
-      const response = await axios.put(`${BASE_URL}/api/like`, {
-        userId: userProfile._id,
-        postId: post?._id,
-        like,
-      });
-      setPost?.({ ...post, likes: response.data.likes });
-    }
-  };
-
   return (
     <div className="like-video">
       <div className="like-video__inner">
@@ -50,11 +37,6 @@ export const LIkeVideo = ({ post, setPost }: ILikesVideos) => {
         </div>
         <div className="like-video__caption">
           <p>{post?.caption}</p>
-        </div>
-        <div className="like-video__profile">
-          {userProfile && (
-            <LikeButton handleLike={handleLike} likes={post?.likes} />
-          )}
         </div>
         <Comments post={post} setPost={setPost} comments={post?.comments} />
       </div>

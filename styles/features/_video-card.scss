@@ -1,6 +1,7 @@
 @import "../mixins/";
 
 .video-card {
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding-bottom: 1.5rem;
@@ -67,25 +68,27 @@
     display: flex;
     gap: 1rem;
     position: relative;
-    @include for-desktop {
-      margin-left: 1rem;
+    width: 100%;
+    @include mobile-min {
+      background: #ededf2;
     }
     > div {
       border-radius: 1.5rem;
+      @include mobile-min {
+        margin: 0 auto;
+      }
     }
   }
 
   &__player {
-    width: 200px;
+    width: 100%;
+    max-width: 450px;
     cursor: pointer;
     background-color: rgb(243 244 246);
-    border-radius: 1rem;
+    height: auto;
+    max-height: 350px;
     @include for-desktop {
-      width: 600px;
-      height: 528px;
-    }
-    @include small-tablet-min {
-      height: 400px;
+      max-height: 450px;
     }
   }
 

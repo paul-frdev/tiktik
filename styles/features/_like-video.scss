@@ -1,14 +1,15 @@
 @import "../mixins/";
 
 .like-video {
-  padding: 0.5rem;
+  padding: 0;
   &__inner {
-    padding: 1.5rem;
+    padding: 0;
   }
   &__container {
     display: flex;
     gap: 1rem;
     margin-bottom: 1rem;
+    padding-top: 0.5rem;
     background: #fff;
     width: 100%;
     cursor: pointer;
