@@ -1,6 +1,6 @@
 import { Navbar } from "components/Navbar";
 import { Sidebar } from "components/Sidebar";
-import React, { Component } from "react";
+import React from "react";
 
 type MainLayoutProps = {
   children: React.ReactNode;
