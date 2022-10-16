@@ -15,62 +15,12 @@
     font-weight: 500;
     border-radius: 0.25rem;
   }
-
-  &__container {
-    width: 2.5rem;
-    height: 2.5rem;
-    @include small-tablet-min {
-      width: 4rem;
-      height: 4rem;
-    }
-  }
-
-  &__image {
-    border-radius: 100%;
-    &--noavalaiable {
-      border: 2px solid rgb(229 231 235);
-    }
-  }
-  &__user,
-  &__username,
-  &__usernamelight {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  &__username {
-    font-weight: 600;
-    @include small-tablet-min {
-      font-size: 1rem;
-      line-height: 1.5rem;
-      color: rgb(28 25 23);
-    }
-  }
-  &__icon {
-    display: none;
-    color: rgb(96 165 250);
-    @include small-tablet-min {
-      display: block;
-    }
-  }
-  &__usernamelight {
-    text-transform: capitalize;
-    font-weight: 500;
-    color: rgb(107 114 128);
-    font-size: 0.75rem;
-    line-height: 1rem;
-  }
-  &__caption {
-    margin-top: 0.5rem;
-    font-weight: 400;
-  }
   &__screen {
     display: flex;
     gap: 1rem;
-    position: relative;
     width: 100%;
     @include mobile-min {
-      background: #ededf2;
+      background: #9b9b9b;
     }
     > div {
       border-radius: 1.5rem;
@@ -81,6 +31,7 @@
   }
 
   &__player {
+    position: relative;
     width: 100%;
     max-width: 450px;
     cursor: pointer;
@@ -93,28 +44,26 @@
   }
 
   &__buttons {
-    display: flex;
-    gap: 2.5rem;
     position: absolute;
-    bottom: 1.5rem;
-    left: 2rem;
-    width: 100px;
-    padding: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 2.5rem;
+    content: "";
+    bottom: 1rem;
+    left: 1rem;
+    width: 90%;
     cursor: pointer;
     > button {
+      padding: 0.3rem 0.3rem;
+      > span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
       &:hover {
         background: transparent;
+        color: #000;
       }
-    }
-    @include small-tablet-min {
-      left: 3.5rem;
-      width: 50px;
-    }
-    @include for-desktop {
-      justify-content: flex-start;
-      width: 400px;
-      left: 5.8rem;
-      bottom: 0;
     }
   }
 }

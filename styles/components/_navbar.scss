@@ -1,6 +1,7 @@
 @import "../mixins/";
 
 .navbar {
+  padding: 0.25rem;
   border-bottom: 2px solid rgb(229 231 235);
   &__inner {
     display: flex;

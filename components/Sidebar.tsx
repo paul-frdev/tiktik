@@ -8,23 +8,28 @@ import { Discover } from "features/Discover";
 import { useRouter } from "next/router";
 import { SuggestedAccounts } from "features/SuggestedAccounts";
 import { useAuthStore } from "store/authStore";
+import { useMediaQuery } from "react-responsive";
 import { Button } from "./Elements/Button";
 import { Footer } from "./Footer";
 
 export const Sidebar: NextPage = () => {
   const [showSidebar, setShowSidebar] = useState(true);
+  const isDesktop = useMediaQuery({
+    query: "(max-width: 1279px)",
+  });
+
   const { fetchAllUsers, allUsers } = useAuthStore();
   const router = useRouter();
-  const detail =
+  const detailOrUpload =
     router.pathname === "/detail/[id]" || router.pathname === "/upload";
 
   useEffect(() => {
-    if (detail) {
+    if (detailOrUpload) {
       setShowSidebar(false);
     } else {
       setShowSidebar(true);
     }
-  }, [detail]);
+  }, [detailOrUpload]);
 
   return (
     <div className="sidebar">
@@ -34,6 +39,11 @@ export const Sidebar: NextPage = () => {
           size="sm"
           variant="inverse"
           onClick={() => setShowSidebar((prev) => !prev)}
+          style={
+            showSidebar && isDesktop
+              ? { margin: "0 auto" }
+              : { marginRight: "auto" }
+          }
         >
           {showSidebar ? <ImCancelCircle /> : <AiOutlineMenu />}
         </Button>

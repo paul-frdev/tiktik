@@ -16,6 +16,7 @@
   &__like {
     display: flex;
     border-radius: 100%;
+    border: none;
     @include small-tablet-min {
       padding: 1rem;
     }
@@ -35,15 +36,17 @@
   &__dislike {
     color: var(--color-primary);
     background: transparent;
+    color: rgb(234, 49, 49);
     padding: 0;
     &:hover {
       color: #000;
     }
   }
+  button,
   &__like {
-    color: #000;
     background: transparent;
     box-shadow: none;
+    color: #000;
     border: none;
     padding: 0;
     &:hover {

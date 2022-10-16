@@ -1,47 +1,6 @@
-@import "../mixins/";
-
 .like-video {
   padding: 0;
   &__inner {
     padding: 0;
-  }
-  &__container {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    padding-top: 0.5rem;
-    background: #fff;
-    width: 100%;
-    cursor: pointer;
-    &-img {
-      border-radius: 100%;
-    }
-    &-user {
-      display: flex;
-      gap: 0.5rem;
-      justify-content: center;
-      align-items: center;
-      > span {
-        font-size: 1rem;
-        line-height: 1.5rem;
-        font-weight: 600;
-        color: rgb(28, 25, 23);
-      }
-      > svg {
-        fill: rgb(96 165 250);
-      }
-    }
-    > div {
-      > p {
-        font-size: 0.75rem;
-        line-height: 1rem;
-        color: rgb(75 85 99);
-      }
-    }
-  }
-  &__caption {
-    > p {
-      color: rgb(75 85 99);
-    }
   }
 }

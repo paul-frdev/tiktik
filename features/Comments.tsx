@@ -7,15 +7,10 @@ import { useAuthStore } from "store/authStore";
 import { CommentForm } from "forms/CommentForm";
 import axios from "axios";
 import { BASE_URL } from "utils";
-import { IUser, Video } from "types";
+import { IComment, IUser, Video } from "types";
 import { LikeButton } from "./LikeButton";
+import { ProfileCard } from "./ProfileCard";
 
-interface IComment {
-  comment: string;
-  length?: number;
-  _key: string;
-  postedBy: { _ref?: string; _id?: string };
-}
 interface CommentsProps {
   post?: Video;
   comments?: IComment[];
@@ -63,29 +58,12 @@ export const Comments = ({ comments, post, setPost }: CommentsProps) => {
               {allUsers?.map(
                 (user: IUser) =>
                   user._id === (item.postedBy._ref || item.postedBy._id) && (
-                    <div className="comments__user-profile" key={user._id}>
-                      <Link href={`/profile/${user._id}`}>
-                        <div className="comments__user-profile-wrapper">
-                          <div>
-                            <Image
-                              width={48}
-                              height={48}
-                              className="comments__user-profile-image"
-                              src={user.image}
-                              alt="user-profile"
-                              layout="responsive"
-                            />
-                          </div>
-                          <p className="comments__user-profile-text">
-                            {user.userName}
-                            <GoVerified />
-                          </p>
-                        </div>
-                      </Link>
-                      <p className="comments__user-profile-comment">
-                        {item.comment}
-                      </p>
-                    </div>
+                    <ProfileCard
+                      className="comments__user-profile"
+                      user={user}
+                      comment={item}
+                      key={user._id}
+                    />
                   )
               )}
             </div>
